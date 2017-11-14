@@ -1,4 +1,4 @@
-function simdata = simulate_neural_data
+%function simdata = simulate_neural_data
 
 %place targets
 targets = 8; 
@@ -19,9 +19,17 @@ plot(xpts, ypts, '.-b', 'Linewidth', 2);
 %make neurons that are tuned to diff directions
 neurons = 16; 
 pd = 2*pi*rand(16, 1); 
-xn = cos(pd); 
+xn = cos(pd);
 yn = sin(pd); 
 plot(xn, yn, '+m'); 
+
+%calculate how those neurons would respond to the given path
+for t=2:num_samps
+    reachdir = atan(ypts(t)/xpts(t)); 
+    %basically do backwards population vector to calculate each neuron's
+    %response - not sure about this
+    %TODO
+end
 %add Poisson-generated noise
 
 
